@@ -1,4 +1,8 @@
-﻿python-telegram-bot==20.7
+python-telegram-bot==20.3
+python-dotenv
+requests
+
+python-telegram-bot==20.7
 python-dotenv
 requests
 aiohappyeyeballs==2.6.1
