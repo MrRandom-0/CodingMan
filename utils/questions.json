@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "title": "Two Sum",
+    "description": "Given an array of integers, return indices of the two numbers such that they add up to a specific target.",
+    "hint": "Use a hash map to store visited numbers.",
+    "solution": "Use a dictionary to check if target - current exists."
+  },
+  {
+    "id": 2,
+    "title": "Reverse a Linked List",
+    "description": "Reverse a singly linked list iteratively.",
+    "hint": "Track prev and next pointers.",
+    "solution": "Loop through the list while updating next pointers."
+  }
+]
