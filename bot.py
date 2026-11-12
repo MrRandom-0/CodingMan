@@ -15,8 +15,6 @@ from handlers.profile import profile_handler        # ✅ Added
 from handlers.reminder import reminder_handlers     # ✅ Added
 from handlers.chat import chat_handler              # ✅ Fallback chat
 from handlers.settings import settings_handlers
-from handlers.core import core_handlers
-
 
 from config import BOT_TOKEN
 
