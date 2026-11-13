@@ -11,6 +11,7 @@ A Telegram bot for daily coding practice. CodingMan sends coding challenges, run
 - **Bookmarks** — save questions to revisit later
 - **Reminders** — scheduled nudges so a day is never missed
 - **Profiles & settings** — per-user language, difficulty and preferences
+- **Help & stats** — `/help` lists every command, `/mystats` summarises your solved count, streak, XP, level and bookmarks, and unknown commands get a friendly pointer instead of silence
 
 ## Requirements
 
@@ -40,6 +41,16 @@ All configuration is via environment variables (loaded from `.env` by `config.py
 | `OPENROUTER_API_KEY` | Yes | OpenRouter API key for AI features |
 
 Never commit your `.env` — it is already listed in `.gitignore`.
+
+## Commands
+
+Send `/help` in the chat for the full, always-current list. Highlights:
+
+- `/today` — today's coding challenge · `/quiz` — quick quiz · `/mockinterview` — mock interview
+- `/mystats` — your solved count, streak, XP, level and bookmarks · `/profile` — your profile
+- `/difficulty`, `/language`, `/set_difficulty`, `/set_topic` — preferences
+- `/save`, `/bookmarks` — bookmark challenges · `/remind`, `/noremind` — daily reminders
+- `/ask <question>` — ask the AI · `/menu` — main menu
 
 ## Project layout
 

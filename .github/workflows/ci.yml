@@ -31,3 +31,12 @@ jobs:
       # smoke-imported instead.
       - name: Smoke-import the config-free submodule
         run: python -c "import utils.users; print('utils.users imports cleanly')"
+
+      # The test suites cover only telegram-free pure logic (utils.users,
+      # utils.commands) by design, so collection never imports the bot's
+      # telegram/config chain described above.
+      - name: Install pytest
+        run: pip install "pytest>=8,<9"
+
+      - name: Run tests
+        run: pytest -q

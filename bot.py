@@ -11,8 +11,9 @@ from handlers.gamification import gamify_handlers   # ✅ Fixed name
 from handlers.bookmarks import bookmark_handlers    # ✅ Added
 from handlers.difficulty import difficulty_handlers # ✅ Added
 from handlers.language import language_handlers     # ✅ Added
-from handlers.profile import profile_handler        # ✅ Added
+from handlers.profile import profile_handler, mystats_handler  # ✅ Added
 from handlers.reminder import reminder_handlers     # ✅ Added
+from handlers.help import help_handler, unknown_command_handler  # ✅ Added
 from handlers.chat import chat_handler              # ✅ Fallback chat
 from handlers.settings import settings_handlers
 
@@ -38,8 +39,14 @@ for handler_group in (
 ):
     app.add_handler(handler_group)
 
-# Register individual handler
+# Register individual handlers
 app.add_handler(profile_handler)
+app.add_handler(mystats_handler)
+app.add_handler(help_handler)
+
+# Unknown /commands: must come after every CommandHandler so it only sees
+# commands nothing else claimed, and before the text chat fallback.
+app.add_handler(unknown_command_handler)
 
 # Fallback (chat-based AI)
 app.add_handler(chat_handler)
