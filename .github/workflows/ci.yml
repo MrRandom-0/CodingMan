@@ -1,0 +1,33 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Compile all Python files
+        run: python -m compileall -q bot.py config.py handlers utils
+
+      # bot.py is deliberately NOT imported here: config.py raises at import
+      # time when BOT_TOKEN / OPENROUTER_API_KEY are unset (by design), and
+      # bot.py builds the Telegram Application at module level. utils.users
+      # is the one module with no config or telegram dependency, so it is
+      # smoke-imported instead.
+      - name: Smoke-import the config-free submodule
+        run: python -c "import utils.users; print('utils.users imports cleanly')"
